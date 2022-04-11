@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>DOM Traversal</title>
+        <style>
+
+            body {
+                margin: 0;
+            }
+
+            div {
+                display: flex;
+                margin: 2rem;
+                padding: 2rem;
+                border: 3px solid black;
+                flex-grow: 1;
+            }
+
+            .grandparent {
+                background-color: brown;
+                flex-direction: column;
+            }
+
+            .parent {
+                background-color: chartreuse;
+            }
+
+            .child {
+                background-color: darkcyan;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <div class="grandparent" id="grandparent-id">
+            <div class="parent">
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+            <div class="parent">
+                <div class="child"></div>
+                <div class="child"></div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
