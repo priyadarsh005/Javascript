@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Drop Down Implementation</title>
+        <style>
+            .dropbtn {
+                padding: 10px;
+                background-color: blueviolet;
+                color: white;
+                cursor: pointer;
+            }
+
+            .dropdown{
+                position: relative;
+                display: inline-block;
+            }
+
+            .dropbtn:hover, .dropbtn:focus {
+                background-color: #2980B9;
+            }
+
+            .dropdown-content {
+                display: none;
+                min-width: 160px;
+                position: absolute;
+                overflow: auto;
+                background-color: #f1f1f1f1;
+                box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                z-index: 1;
+            }
+
+            .dropdown-content a {
+                display: block;
+                padding: 12px 12px;
+                text-decoration: none;
+                color: black;
+            }
+
+            .dropdown a:hover {
+                background-color: #ddd;
+            }
+
+            .show {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Clickable Dropdown</h2>
+        <p>Click on the button to open the dropdown menu.</p>
+        <div class="dropdown">
+            <button class="dropbtn" onclick="myFunction()">Drop Down</button>
+            <div id="myDropDown" class="dropdown-content">
+                <a href=#home>Home</a>
+                <a href=#about>About</a>
+                <a href=#contact>Contact</a>
+            </div>
+        </div>
+
+        <script>
+            function myFunction() {
+                document.getElementById("myDropDown").classList.toggle("show");
+            }
+            
+            window.onclick = function(event) {
+                if (!event.target.matches('.dropbtn')) {
+                    let menuItems = document.getElementsByClassName('dropdown-content');
+
+                    for (let i = 0; i < menuItems.length; i++) {
+                        if (menuItems[i].classList.contains('show'))
+                            menuItems[i].classList.remove('show');
+                    }
+                }
+            }
+           
+        </script>
+    </body>
+</html>
