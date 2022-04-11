@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en-US">
+    <head>
+        <title>Table Component</title>
+        <style>
+            table {
+                font-family: Arial, Helvetica, sans-serif;
+                border-collapse: collapse;
+                text-transform: uppercase;
+                width: 50%;
+            }
+            td, th {
+                border: 1px solid #000000;
+                padding: 5px;
+            }
+            tr:nth-child(even) {
+                background-color: lightgrey;
+            }
+            tr:hover {
+                background-color: black;
+                color: white;
+            }
+        </style>
+        <script>
+            let sortDirection = false;
+            let personData = [
+                { name: "Smith", age: 50 },
+                { name: "Kent", age: 29 },
+                { name: "Mark", age: 47 },
+                { name: "Sourav", age: 43 },
+                { name: "PK", age: 34 },
+            ]
+
+            window.onload = () => {
+                loadTableData(personData);
+            }
+
+            function loadTableData(personData) {
+                const tableBody = document.getElementById("tableData");
+                let dataHtml = '';
+
+                for (let person of personData) {
+                    dataHtml+= `<tr><td>${person.name}</td><td>${person.age}</td></tr>`
+                }
+
+                tableBody.innerHTML = dataHtml;
+            }
+
+            function sortColumn(columnName) {
+                const dataType = typeof personData[0][columnName];
+                sortDirection = !sortDirection;
+
+                switch (dataType) {
+                    case 'number': 
+                        sortNumberColumn(sortDirection, columnName);
+                }
+
+                loadTableData(personData);
+            }
+
+            function sortNumberColumn(sortDirection, columnName) {
+                personData = personData.sort((p1, p2) => {
+                    return sortDirection ? p1[columnName] - p2[columnName] : p2[columnName] - p1[columnName];
+                });
+            }
+
+        </script>
+    </head>
+
+    <body>
+        <table>
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th onclick="sortColumn('age')"> Age </th>
+                </tr>
+            </thead>
+            <tbody id="tableData">
+
+            </tbody>
+        </table>
+    </body>
+</html>
