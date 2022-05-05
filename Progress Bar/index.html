@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Progress Bar</title>
+        <style>
+            .bar-container {
+                width: 200px;
+                height: 30px;
+                background-color: grey;
+                margin: 20px 20px;
+            }
+
+            .bar {
+                background-color: green;
+                height: 100%;
+                width: 0%;
+            }
+        </style>
+    </head>
+    <body>
+        <p1>Progress Bar</p1>
+        <div class="bar-container">
+            <div class="bar" />
+        </div>
+        <br />
+        <button onclick="fillProgressBar(2)">Click Me</button>
+
+        <script>
+            function fillProgressBar(seconds) {
+                const bar = document.querySelector('.bar');
+                bar.style.transition = `width ${seconds}s linear`;
+                bar.style.width = '100%'
+            }
+
+            /*
+            // using javascript instead of css transition property
+            function fillBar(seconds) {
+                const bar = document.querySelector('.bar');
+                let atPercent = 0;
+                const interval = setInterval(() => {
+                    bar.style.width = atPercent + '%'
+                    atPercent++;
+                    if (atPercent > 100) {
+                        clearInterval(interval);
+                    }
+
+                }, (seconds * 1000 / 100))
+            }
+            */
+        </script>
+    </body>
+</html>
