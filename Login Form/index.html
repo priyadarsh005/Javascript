@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login Form</title>
+    </head>
+    <body>
+        <form onsubmit="handleSubmit()">
+            <h1>Login Form</h1>
+            <h4>User Name</h4>
+            <input type="text" placeholder="Enter your email address" />
+            <h4>Password</h4>
+            <input type="password" placeholder="Enter your password" />
+            </br></br>
+            <input type="submit" value="Login" />
+            <input type="button" value="Sign Up" onclick="create()"/>
+        </form>
+        <script>
+            function create() {
+                console.log("Sign Up");
+                window.location = "signup.html"
+
+            }
+
+            function handleSubmit () {
+                console.log("On Login");
+                alert("Login is successful");
+            }
+        </script>
+    </body>
+</html>
